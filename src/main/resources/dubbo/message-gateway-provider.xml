@@ -30,7 +30,7 @@
     <!-- 这里使用的注册中心是zookeeper -->
     <dubbo:registry address="${dubbo.registry.address}" client="zkclient"/>
 
-    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <!-- 用dubbo协议在20889端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}"/>
 
 

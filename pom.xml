@@ -81,6 +81,14 @@
 		</dependency>
 		<!--email 结束-->
 
+		<!--短信依赖 开始（腾讯云测试）-->
+		<dependency>
+			<groupId>com.github.qcloudsms</groupId>
+			<artifactId>qcloudsms</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		<!--短信依赖 结束-->
+
 		<!--dubbo开始-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
