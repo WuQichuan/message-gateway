@@ -89,6 +89,12 @@
 		</dependency>
 		<!--短信依赖 结束-->
 
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.28</version>
+		</dependency>
+
 		<!--dubbo开始-->
 		<dependency>
 			<groupId>com.alibaba</groupId>

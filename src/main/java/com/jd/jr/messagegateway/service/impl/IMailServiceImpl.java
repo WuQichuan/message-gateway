@@ -36,14 +36,19 @@ public class IMailServiceImpl implements IMailService {
         // 获取 MimeMessage 对象。
         MimeMessage message = mailConfig.getMessage();
         try {
-            //设置收件人
-            for (String toMail:toMailList) {
-                message.setRecipient(Message.RecipientType.TO, new InternetAddress(toMail));
+            if(toMailList != null){
+                //设置收件人
+                for (String toMail:toMailList) {
+                    message.setRecipient(Message.RecipientType.TO, new InternetAddress(toMail));
+                }
             }
-            //设置抄送人
-            for (String ccMail:CcMailList) {
-                message.setRecipient(Message.RecipientType.CC, new InternetAddress(ccMail));
+            if(CcMailList != null){
+                //设置抄送人
+                for (String ccMail:CcMailList) {
+                    message.setRecipient(Message.RecipientType.CC, new InternetAddress(ccMail));
+                }
             }
+
             // 设置标题
             message.setSubject(title);
             //设置内容，text格式
@@ -74,6 +79,9 @@ public class IMailServiceImpl implements IMailService {
             // 设置标题
             message.setSubject(title);
             //设置内容，text格式
+            if(systemName != null ){
+                content = systemName+"系统提示您 ："+content;
+            }
             message.setText(content);
             // 发送消息
             Transport.send(message);
