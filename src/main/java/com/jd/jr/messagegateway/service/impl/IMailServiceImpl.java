@@ -4,8 +4,10 @@ import com.jd.jr.messagegateway.config.MailConfig;
 import com.jd.jr.service.notice.IMailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Transport;
@@ -24,11 +26,15 @@ public class IMailServiceImpl implements IMailService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    // 获取 MimeMessage 对象。
-    MimeMessage message = new MailConfig().getMessage();
+    @Autowired
+    private MailConfig mailConfig;
+
+
 
     @Override
     public boolean sendHtml(String systemName, String title, String content, List<String> toMailList, List<String> CcMailList, String remark) {
+        // 获取 MimeMessage 对象。
+        MimeMessage message = mailConfig.getMessage();
         try {
             //设置收件人
             for (String toMail:toMailList) {
@@ -54,6 +60,8 @@ public class IMailServiceImpl implements IMailService {
 
     @Override
     public boolean sendText(String systemName, String title, String content, List<String> toMailList, List<String> CcMailList, String remark) {
+        // 获取 MimeMessage 对象。
+        MimeMessage message = mailConfig.getMessage();
         try {
             //设置收件人
             for (String toMail:toMailList) {
@@ -77,6 +85,5 @@ public class IMailServiceImpl implements IMailService {
         }
 
     }
-
 
 }

@@ -1,7 +1,9 @@
 package com.jd.jr.messagegateway.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
@@ -44,7 +46,7 @@ public class MailConfig extends Authenticator {
         properties.setProperty("mail.user",user);
         properties.setProperty("mail.password",password);
         // 获取默认的 Session 对象。
-        Session session = Session.getInstance(properties,new MailConfig());
+        Session session = Session.getInstance(properties,this);
         // 创建默认的 MimeMessage 对象。
         MimeMessage message = new MimeMessage(session);
 
