@@ -21,6 +21,10 @@ import java.util.Properties;
  */
 @Component
 public class MailConfig extends Authenticator {
+    /*
+     * 目前采用wuqichuan199739@163.com作为发件邮箱进行测试
+     * 部署测试请更改邮箱配置
+     */
     @Value("${mail.smtp.host}")
     private String host;
 
@@ -36,6 +40,14 @@ public class MailConfig extends Authenticator {
     @Value("${mail.password}")
     private String password;
 
+    /**
+     * @description: 获取一个message对象
+     * @param: []
+     * @return: javax.mail.internet.MimeMessage
+     * @auther: wuqichuan@jd.com
+     * @date: 2019/1/29 13:46
+     * @version V1.0
+     */
     public MimeMessage getMessage() {
         // 获取系统属性
         Properties properties = System.getProperties();

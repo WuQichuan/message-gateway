@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @version V1.0
- * @Description: 手机短信配置类
+ * @Description: 手机短信配置类（暂时无用）
  * @Auther: wuqichuan@jd.com
  * @Date: 2019/1/24 17:54
  */
