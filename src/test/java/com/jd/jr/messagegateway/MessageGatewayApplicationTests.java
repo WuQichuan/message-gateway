@@ -3,6 +3,8 @@ package com.jd.jr.messagegateway;
 import com.jd.jr.messagegateway.service.impl.MessageServiceImpl;
 import com.jd.jr.service.notice.IMailService;
 import com.jd.jrdp.exts.message.MessageService;
+import com.jd.mms.audio.jsf.request.BatchFixedTextAudioMessage;
+import com.jd.mms.audio.jsf.service.AudioMessageService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +23,13 @@ public class MessageGatewayApplicationTests {
 	IMailService mailService;
 	@Autowired
 	MessageService messageService;
+	@Autowired
+	AudioMessageService audioMessageService;
 
 	@Test
 	public void contextLoads() {
 
-		//测试iMailServiceImpl
+		/*//测试iMailServiceImpl
 		List<String> toList = new ArrayList<>();
 		toList.add("wuqichuan@jd.com");
 		List<String> ccList = new ArrayList<>();
@@ -38,7 +42,11 @@ public class MessageGatewayApplicationTests {
 		sendMap.put("content","<div>messageService测试</div>");
 		sendMap.put("receiver","wuqichuan@jd.com");
 
-		messageService.execute("message.mailSender.sendHtml",sendMap,"");
+		messageService.execute("message.mailSender.sendHtml",sendMap,"");*/
+
+		//测试audioMessageService
+		BatchFixedTextAudioMessage batchFixedTextAudioMessage = new BatchFixedTextAudioMessage();
+		audioMessageService.sendBatchAudioMessage(batchFixedTextAudioMessage);
 	}
 
 }
