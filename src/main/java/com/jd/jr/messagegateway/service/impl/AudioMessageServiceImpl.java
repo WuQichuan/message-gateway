@@ -19,12 +19,12 @@ import org.springframework.stereotype.Service;
 public class AudioMessageServiceImpl implements AudioMessageService {
     private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
-     AudioMessageConfig audioMessageConfig;
+    AudioMessageConfig audioMessageConfig;
 
     @Override
     public BatchAudioMessageResponse sendBatchAudioMessage(BatchFixedTextAudioMessage batchFixedTextAudioMessage) {
-        logger.info("模拟运营发送");
-        logger.info("当前配置文件为"+audioMessageConfig.getCompany());
+        logger.info("---模拟语音消息发送---");
+        logger.info("当前使用--->"+audioMessageConfig.getCompany()+"公司的API");
         BatchAudioMessageResponse response = new BatchAudioMessageResponse();
         return response;
     }

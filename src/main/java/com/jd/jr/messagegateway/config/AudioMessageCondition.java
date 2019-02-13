@@ -6,7 +6,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
  * @version V1.0
- * @Description:
+ * @Description: 语音消息条件注入的条件匹配类
  * @Auther: wuqichuan@jd.com
  * @Date: 2019/2/12 16:32
  */
